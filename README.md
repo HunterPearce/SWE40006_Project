@@ -41,7 +41,7 @@ The repository contains an `appspec.yml` file in the root directory, which is us
 The `appspec.yml` file contains the following sections:
 
 1. **version**: Specifies the version of the AppSpec format. In our case, it is `0.0`, the default version.
-2. **os**: Defines the target operating system. Since we are deploying to a Linux-based EC2 instance, we use `linux`.
+2. **os**: Defines the target operating system. Since we are deploying to a Linux-based EC2 instance, we use `linux` Note: This can easily be changed.
 3. **files**: This section describes which files from the repository should be copied to the EC2 instance and their destination paths. For example, the `calculator` folder will be copied to `/var/www/html` on the EC2 instance, which is the default location for web content served by Apache.
 4. **hooks**: Defines lifecycle event hooks, which are custom scripts that run at various stages of the deployment process. These scripts handle tasks like installing dependencies or restarting the server.
 
