@@ -18,13 +18,19 @@ To run the calculator web app locally, follow these steps:
 
 1. Clone the repository:
    
-    'git clone https://github.com/your-username/repository-name.git'
+    ```bash
+    git clone https://github.com/your-username/repository-name.git
+    ```
     
-    'cd repository-name'
+    ```bash
+    cd repository-name
+    ```
 
-2. Open the calculator/index.html file in your browser:
+2. Open the `calculator/index.html` file in your browser:
 
+    ```bash
     open calculator/index.html
+    ```
 
 ## Contributing
 
@@ -34,10 +40,16 @@ If you'd like to contribute to this project, follow these steps:
 
 2. Create a new branch for your feature or bug fix:
     
-    'git checkout -b feature-name'
+    ```bash
+    git checkout -b feature-name
+    ```
 
-3. commit your changes and push them to GitHub:
+3. Commit your changes and push them to GitHub:
     
-    'git commit -m "describe your feature"'
-   
-   'git push origin feature-name'
+    ```bash
+    git commit -m "describe your feature"
+    ```
+    
+    ```bash
+    git push origin feature-name
+    ```
