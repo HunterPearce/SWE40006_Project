@@ -5,6 +5,7 @@ This repository contains a simple calculator web application built with HTML, CS
 ## Table of Contents
 - [Calculator Overview](#calculator-overview)
 - [How to Run Locally](#how-to-run-locally)
+- [AWS CodeDeploy Configuration](#aws-codedeploy-configuration)
 - [Contributing](#contributing)
 
 ## Calculator Overview
@@ -31,6 +32,18 @@ To run the calculator web app locally, follow these steps:
     ```bash
     open calculator/index.html
     ```
+
+## AWS CodeDeploy Configuration
+
+The repository contains an `appspec.yml` file in the root directory, which is used to configure AWS CodeDeploy for automated deployment of the web app to EC2 instances. This file defines how and where the calculator app should be deployed and includes hooks for running scripts during the deployment process.
+
+### `appspec.yml` Explanation
+The `appspec.yml` file contains the following sections:
+
+1. **version**: Specifies the version of the AppSpec format. In our case, it is `0.0`, the default version.
+2. **os**: Defines the target operating system. Since we are deploying to a Linux-based EC2 instance, we use `linux`.
+3. **files**: This section describes which files from the repository should be copied to the EC2 instance and their destination paths. For example, the `calculator` folder will be copied to `/var/www/html` on the EC2 instance, which is the default location for web content served by Apache.
+4. **hooks**: Defines lifecycle event hooks, which are custom scripts that run at various stages of the deployment process. These scripts handle tasks like installing dependencies or restarting the server.
 
 ## Contributing
 
