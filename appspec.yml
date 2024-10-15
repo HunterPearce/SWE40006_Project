@@ -1,5 +1,10 @@
 version: 0.0
 os: linux
 files:
-  - source: Calculator/
-    destination: /var/www/html  # Path where files will be deployed on EC2 instance
+  - source: /
+    destination: /var/www/html  # Adjust if necessary
+hooks:
+  AfterInstall:
+    - location: start_server.sh
+      timeout: 300
+      runas: root
