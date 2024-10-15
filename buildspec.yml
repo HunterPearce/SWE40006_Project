@@ -3,17 +3,11 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 14  # This line can be omitted if you're not using Node.js for anything
-    commands:
-      - echo "No dependencies to install"
-
+      nodejs: 14
   build:
     commands:
-      - echo "Building the application"
-      - echo "Copying files to output directory"
-      - mkdir -p output  # Create an output directory
-      - cp -r ./* output/  # Copy all files to the output directory
-
+      - echo "Building the application..."
+      - npm install
 artifacts:
   files:
-    - output/**/*  # Specify the output files to include in the artifacts
+    - '**/*'
