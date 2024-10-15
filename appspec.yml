@@ -3,8 +3,3 @@ os: linux
 files:
   - source: /calculator
     destination: /var/www/html  # Path where files will be deployed on EC2 instance
-hooks: # optional, can remove
-  BeforeInstall:
-    - location: scripts/install_dependencies.sh
-  AfterInstall:
-    - location: scripts/start_server.sh
