@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Update the package repository
+sudo yum update -y
+
+# Remove any existing CodeDeploy agent
+sudo yum remove codedeploy-agent -y
+
+# Install the CodeDeploy agent
+wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
+sudo chmod +x ./install
+sudo ./install auto
+
+# Start the CodeDeploy agent
+sudo systemctl start codedeploy-agent
+
+# Enable the CodeDeploy agent to start on boot
+sudo systemctl enable codedeploy-agent
+
+# Check the status of the CodeDeploy agent
+sudo systemctl status codedeploy-agent
