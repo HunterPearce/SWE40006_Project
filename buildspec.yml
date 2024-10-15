@@ -1,0 +1,21 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14 # Specify your runtime if needed
+    commands:
+      - echo "Installing dependencies"
+      - chmod +x install_dependencies.sh
+      - ./install_dependencies.sh # Run your dependencies script
+  build:
+    commands:
+      - echo "No build steps needed for a simple HTML/JS app"
+  post_build:
+    commands:
+      - echo "Copying files to EC2 instance"
+      - chmod 600 DevOpsPipeline.ppk # Set permissions for the SSH key
+      - scp -i DevOpsPipeline.ppk -o StrictHostKeyChecking=no -r ./Calculator/* ec2-user@107.21.90.9:/var/www/html/
+      - ssh -i DevOpsPipeline.ppk ec2-user@107.21.90.9 'bash -s' < start_server.sh
+artifacts:
+  files:
+    - '**/*'
